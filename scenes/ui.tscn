@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgtxm1352mdtn"]
+
+[ext_resource type="Script" uid="uid://clwxcrahuko4a" path="res://scripts/label_main_screen.gd" id="1_x4jx1"]
+[ext_resource type="Script" uid="uid://csm7jyvcoiw7u" path="res://scripts/button_start.gd" id="2_yev5y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -49.0
+offset_top = -29.0
+offset_right = 62.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+text = "hello"
+vertical_alignment = 1
+script = ExtResource("1_x4jx1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_yev5y")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ble2jhwtyxcll"]
+
+[ext_resource type="Script" uid="uid://bh2dqkpnqw3vq" path="res://scripts/gamemanager.gd" id="1_5hlx4"]
+[ext_resource type="Texture2D" uid="uid://cjo37vnbko6gy" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/8f69f80180dfb7be1eee7ce7cfb0e5c4.png" id="1_qbfdf"]
+[ext_resource type="PackedScene" uid="uid://dtl8at3hlmno0" path="res://scenes/player.tscn" id="2_78g4n"]
+[ext_resource type="PackedScene" uid="uid://dkcbkgdcepf4t" path="res://scenes/vampire.tscn" id="3_bpblp"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(19, 19)
+script = ExtResource("1_5hlx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-594.99994, -2)
+scale = Vector2(1.625, 1.5375)
+texture = ExtResource("1_qbfdf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(583.00006, -2)
+scale = Vector2(1.625, 1.5375)
+texture = ExtResource("1_qbfdf")
+
+[node name="vampire" parent="." instance=ExtResource("3_bpblp")]
+position = Vector2(784, 343)
+
+[node name="Player" parent="." instance=ExtResource("2_78g4n")]
+position = Vector2(51, 40)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-25, -18)
+zoom = Vector2(1.06, 1.06)
+limit_left = -1220
+limit_top = -508
+limit_right = 1220
+limit_bottom = 508
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="spawn_vampire"]
